@@ -8,7 +8,7 @@
 
 	<view class="login-content">
 		<view class="login-content__icon">
-			<img src="../../static/images/welcome.png" alt="">
+			<img class="login-content__icon-img" src="../../static/images/welcome.png" alt="">
 		</view>
 		<view class="login-content__title">
 			欢迎回来!
@@ -166,56 +166,58 @@
 		flex-direction: column;
 		align-items: center;
 		//justify-content: center;
-		height: 100%;
+		height: 100vh;
 		background-image: linear-gradient(0deg, #0ea1fe 0%, #125ee6 100%);
 		&__icon {
-			margin: 80px 40px 0;
-			width: calc(100% - 80px);
-			img {
-				height: 50px;
+			margin: 160rpx 80rpx 0;
+			width: calc(100% - 160rpx);
+			&-img {
+				height: 100rpx;
+				width: 100rpx;
 			}
 		}
 		&__title {
 			font-weight: 400;
-			margin: 0 40px 40px;
-			width: calc(100% - 80px);
-			font-size: 32px;
+			margin: 0 80rpx 80rpx;
+			width: calc(100% - 160rpx);
+			font-size: 64rpx;
 			color: white;
 		}
 		&__container {
 			width: 100%;
-			padding: 40px 40px;
-			border-radius: 8px;
-			//box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);
+			padding: 80rpx 80rpx;
+			border-radius: 16rpx;
 
 			&-item {
 				position: relative;
+				height: 96rpx;
 			}
 			&-icon {
 				position: absolute;
-				left: 18px;
-				line-height: 48px;
-				height: 48px;
+				left: 36rpx;
+				line-height: 96rpx;
+				height: 96rpx;
 			}
 
 			&-input {
-				//border: 1px solid white;
-				height: 50px;
-				line-height: 50px;
-				border-radius: 25px;
+				position: absolute;
+				width: 100%;
+				height: 100rpx;
+				line-height: 100rpx;
+				border-radius: 50rpx;
 				background: rgba(0, 0, 0, 0.05);
-				font-size: 13px;
-				padding-right: 20px !important;
+				font-size: 26rpx;
+				padding-right: 40rpx !important;
 				color: rgba(255, 255, 255, 0.95);
 				::v-deep .input-placeholder {
 					color: rgba(255, 255, 255, 0.6);
 				}
 				::v-deep .u-input__input {
-					height: 30px;
-					min-height: 30px !important;
-					line-height: 30px;
-					margin: 10px 0;
-					padding-left: 40px;
+					height: 60rpx;
+					min-height: 60rpx !important;
+					line-height: 60rpx;
+					margin: 20rpx 0;
+					padding-left: 80rpx;
 					color: rgba(255, 255, 255, 0.95);
 					::-ms-reveal{
 						display: none;
@@ -223,37 +225,37 @@
 				}
 			}
 			.second {
-				margin-top: 30px;
+				margin-top: 60rpx;
 			}
 			.third {
-				margin-top: 10px;
+				margin-top: 20rpx;
 			}
 			&-action {
-				padding: 0 20px;
-				line-height: 24px;
+				// padding: 0 40rpx;
+				line-height: 48rpx;
 				display: flex;
 				justify-content: space-between;
 				&__register, &__password {
 					color: rgba(255, 255, 255, .85);
-					font-size: 13px;
+					font-size: 26rpx;
 				}
 				&__password {
 					flex: 1;
 					text-align: right;
 					::v-deep .u-checkbox__label {
-						font-size: 13px;
+						font-size: 26rpx;
 						color: rgba(255, 255, 255, .85);
 					}
 				}
 			}
 			&-button {
-				margin-top: 30px;
-				height: 50px;
-				line-height: 50px;
-				border-radius: 25px;
+				margin-top: 60rpx;
+				height: 100rpx;
+				line-height: 100rpx;
+				border-radius: 50rpx;
 				background-image: linear-gradient(100deg, #0ea1fe 0%, #125ee6 100%);
-				font-size: 15px;
-				padding: 0 20px;
+				font-size: 30rpx;
+				padding: 0 40rpx;
 				color: rgba(255, 255, 255, 0.95);
 			}
 		}
