@@ -20,6 +20,7 @@
 					class="login-content__container-input"
 					placeholder="请输入用户名"
 					v-model="username"
+					@confirm="loginSubmit"
 				/>
 			</view>
 			<view class="login-content__container-item second">
@@ -30,6 +31,7 @@
 					v-model="password"
 					:type="passwordType"
 					@focus="changePasswordType"
+					@confirm="loginSubmit"
 				/>
 			</view>
 			<view class="login-content__container-item third">

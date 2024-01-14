@@ -2,14 +2,18 @@
 	<view class="content">
 	    <image class="logo" src="/static/logo.png" />
 	    <view class="text-area">
-	        <text class="title">{{ title }}</text>
+	        <u-input
+				v-model="title"
+				placeholder="Please Scan Code"
+				:focus="inputFocus"
+				@confirm="inputConfirm"></u-input>
 	    </view>
 	</view>
 </template>
 
 <script setup lang="ts">
 	import useLoading from '@/compose/loading'
-	import { ref, onMounted } from 'vue'
+	import { ref, onMounted, nextTick } from 'vue'
 	import { getStorage } from '@/utils/auth'
 	import { onNavigationBarButtonTap } from '@dcloudio/uni-app'
 
@@ -17,7 +21,8 @@
 	// setTimeout(() => {
 	// 	loading.hideLoading()
 	// }, 2000)
-	const title = ref('Hello')
+	const title = ref('')
+	const inputFocus = ref(false)
 
 	onMounted(() => {
 		if (!getStorage('token')) {
@@ -31,6 +36,9 @@
 				});
 			},1000)
 		}
+		setTimeout(() => {
+			inputFocus.value = true
+		}, 0)
 	})
 
 	const handleExit = () => {
@@ -57,8 +65,21 @@
 			'scanType': ['qrCode', 'barCode']
 		},
 		(ret) => {
-			console.log(ret)
+			if (ret.resp_code === 1000) {
+				title.value = ret.resp_result
+			}
 		})
+	}
+	
+	const inputConfirm = () => {
+		inputFocus.value = false
+		uni.showToast({
+			title: `${title.value}`
+		})
+		setTimeout(() => {
+			title.value = ''
+			inputFocus.value = true
+		}, 600)
 	}
 
 	onNavigationBarButtonTap((e) => {

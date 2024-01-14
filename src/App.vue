@@ -1,7 +1,13 @@
 <script setup lang="ts">
 	import { onLaunch, onShow, onHide } from "@dcloudio/uni-app";
 	onLaunch(() => {
-	    console.log("App Launch");
+	  // if (uni.getSystemInfoSync().platform === 'android') {
+	  //   // 注册安卓原生事件监听器
+	  //   uni.$on('appKeyInput', function(e) {
+	  //     console.log('全局键盘输入：', e);
+	  //     // 在这里可以处理全局键盘输入事件
+	  //   });
+	  // }
 	});
 	onShow(() => {
 	    console.log("App Show");
