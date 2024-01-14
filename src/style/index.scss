@@ -1,2 +1,10 @@
-// 全局css变量放在这儿
 
+:root {
+	--primary-color: #2aae67;
+	--primary-opacity-color: rgba(42, 174, 103, 0.7);
+}
+.uni-page-head-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

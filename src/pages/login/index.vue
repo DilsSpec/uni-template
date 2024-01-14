@@ -8,7 +8,7 @@
 
 	<view class="login-content">
 		<view class="login-content__icon">
-			<img class="login-content__icon-img" src="../../static/images/welcome.png" alt="">
+			<image class="login-content__icon-img" src="../../static/images/welcome.png" alt="" />
 		</view>
 		<view class="login-content__title">
 			欢迎回来!
@@ -93,7 +93,7 @@
 			}
 
 			// 需替换
-			setStorage('token', '随便写写')
+			setStorage('token', 'test-token')
 		}
 		if (username.value && password.value) {
 			spinning.value = true

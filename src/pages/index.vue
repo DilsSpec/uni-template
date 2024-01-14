@@ -11,6 +11,7 @@
 	import useLoading from '@/compose/loading'
 	import { ref, onMounted } from 'vue'
 	import { getStorage } from '@/utils/auth'
+	import { onNavigationBarButtonTap } from '@dcloudio/uni-app'
 
 	// const loading = useLoading()
 	// setTimeout(() => {
@@ -29,6 +30,45 @@
 					url: '/pages/login/index'
 				});
 			},1000)
+		}
+	})
+
+	const handleExit = () => {
+		uni.showModal({
+			title: '提示',
+			content: '确定退出登录吗？',
+			success: function (res) {
+				if (res.confirm) {
+					uni.removeStorageSync('token')
+					uni.removeStorageSync('userLoginInfo')
+					uni.reLaunch({
+						url: '/pages/login/index'
+					});
+				} else if (res.cancel) {
+					console.log('用户点击取消');
+				}
+			}
+		});
+	}
+
+	const handleScan = () => {
+		const mpaasScanModule = uni.requireNativePlugin("Mpaas-Scan-Module")
+		mpaasScanModule.mpaasScan({
+			'scanType': ['qrCode', 'barCode']
+		},
+		(ret) => {
+			console.log(ret)
+		})
+	}
+
+	onNavigationBarButtonTap((e) => {
+		switch (e?.name) {
+			case 'exit': handleExit()
+				break;
+			case 'scan': handleScan()
+				break;
+			default:
+				break;
 		}
 	})
 </script>

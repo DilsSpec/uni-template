@@ -3,7 +3,28 @@
 		{
 			"path": "pages/index",
 			"style": {
-				"navigationBarTitleText": "主页"
+				"navigationBarTitleText": "主页",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [{
+							"name": "exit",
+							"text": "\ue62e",
+							"width": "30px",
+							"fontSize": "20px",
+							"color": "#555",
+							"float": "left",
+							"fontSrc": "static/ttf/iconfont.ttf"
+						}, {
+							"name": "scan",
+							"text": "\ue76f",
+							"width": "30px",
+							"fontSize": "20px",
+							"color": "#555",
+							"fontSrc": "static/ttf/iconfont.ttf",
+							"float": "right"
+						}]
+					}
+				}
 			}
 		},
 		{
